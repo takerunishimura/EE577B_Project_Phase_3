@@ -5,28 +5,28 @@ module cardinal_nic (
     input              reset,
 
     // Processor side
-    input      [1:0]   addr,
-    input      [63:0]  d_in,
-    output reg [63:0]  d_out,
+    input      [0:1]   addr,     // change from little endian [1:0] to big endian [0:1]
+    input      [0:63]  d_in,     // change from little endian [63:0] to big endian [0:63]
+    output reg [0:63]  d_out,    // change from little endian [63:0] to big endian [0:63]
     input              nicEn,
     input              nicWrEn,
 
     // Router side
     output             net_so,
     input              net_ro,
-    output     [63:0]  net_do,
+    output     [0:63]  net_do,   // change from little endian [63:0] to big endian [0:63]
 
     input              net_si,
     output             net_ri,
-    input      [63:0]  net_di,
+    input      [0:63]  net_di,   // change from little endian [63:0] to big endian [0:63]
     input              net_polarity
 );
 
     // ------------------------------------------------------------
     // Internal registers
     // ------------------------------------------------------------
-    reg [63:0] in_buf;          // network input channel buffer
-    reg [63:0] out_buf;         // network output channel buffer
+    reg [0:63] in_buf;          // network input channel buffer, change from little endian [63:0] to big endian [0:63]
+    reg [0:63] out_buf;         // network output channel buffer, change from little endian [63:0] to big endian [0:63]
     reg        in_status;       // 1 = input buffer full,  0 = empty
     reg        out_status;      // 1 = output buffer full, 0 = empty
 
@@ -44,11 +44,11 @@ module cardinal_nic (
 
     // ------------------------------------------------------------
     // VC polarity bit in packet
-    // Router spec: packet[63] is the VC polarity bit
+    // Router spec: packet[63] is the VC polarity bit change to packet[0] is the VC polarity bit in big-endian labeling
     // 0 = even VC, 1 = odd VC
     // ------------------------------------------------------------
     wire packet_vc_bit;
-    assign packet_vc_bit = out_buf[63];
+    assign packet_vc_bit = out_buf[0];
 
     // ------------------------------------------------------------
     // Router-side handshaking
