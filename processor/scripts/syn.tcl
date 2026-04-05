@@ -1,11 +1,7 @@
 ######################################################################
-#
-# EE-577b 2020 FALL
-# : DesignCompiler synthesis script
-#   modified by Linyi Hong
+# DesignCompiler synthesis script
 #
 # use this script as a template for synthesizing combinational logic
-#
 ######################################################################
 
 # Setting variable for design_name. (top module name)
@@ -13,15 +9,24 @@ set design_name $env(DESIGN_NAME);
 
 ## For NCSUFreePDK45nm library
 set search_path [ list . \
-                  /home/scf-22/ee577/NCSU45PDK/FreePDK45/osu_soc/lib/files ]
+                  /tools/PDK/NCSU45PDK/FreePDK45/osu_soc/lib/files/ ]
 set target_library { gscl45nm.db }
 set synthetic_library [list dw_foundation.sldb standard.sldb ]
 set link_library [list * gscl45nm.db dw_foundation.sldb standard.sldb]
 
 
 # Reading source verilog file.
-# copy your verilog file into ./src/ before synthesis.
-read_verilog [glob ./src/*.v] ;
+# in this version, you don't need to copy the verilog file into ./src/ before synthesis.
+set rtl_dir ./design
+set rtl_files [glob -nocomplain $rtl_dir/*.v]
+if {[llength $rtl_files] == 0} {
+    puts "ERROR: No RTL files found in $rtl_dir"
+    exit 1
+}
+puts "Info: Found [llength $rtl_files] RTL files"
+
+analyze -format verilog $rtl_files
+elaborate $design_name
 
 # Setting $design_name as current working design.
 # Use this command before setting any constraints.
@@ -35,8 +40,8 @@ uniquify ;
 # This command checks whether your design can be compiled
 link ;
 
-# Create a clock with period of 4.
-create_clock -name clk -period 4.0 -waveform [list 0 2.0] [get_ports clk]
+# Create a clock with period of 5.
+create_clock -name clk -period 4 -waveform [list 0 2] [get_ports clk]
 
 # Setting timing constraints for combinational logic.
 # Specifying maximum delay from inputs to outputs
@@ -49,9 +54,10 @@ create_clock -name clk -period 4.0 -waveform [list 0 2.0] [get_ports clk]
 check_design > report/$design_name.check_design ;
 
 # Perforing synthesis and optimization on the current_design.
-compile_ultra ;
+compile ;
+# compile_ultra
 
-# For better synthesis result, use "compile_ultra" command.
+# For better synthesis result, use "" command.
 # compile_ultra is doing automatic ungrouping during optimization,
 # therefore sometimes it's hard to figure out the critical path 
 # from the synthesized netlist.
@@ -60,9 +66,9 @@ compile_ultra ;
 # Writing the synthesis result into Synopsys db format.
 # You can read the saved db file into DesignCompiler later using
 # "read_db" command for further analysis (timing, area...).
-#write -xg_force_db -format db -hierarchy -out db/$design_name.db ;
+# write -xg_force_db -format db -hierarchy -out db/$design_name.db ;
 
-# Generating timing and are report of the synthezied design.
+# Generating timing,area and power report of the synthezied design.
 report_timing > report/$design_name.timing ;
 report_area > report/$design_name.area ;
 report_power > report/$design_name.power ;
@@ -77,3 +83,4 @@ write -format verilog -hierarchy -out netlist/${design_name}_syn.v ;
 write_sdf netlist/${design_name}_syn.sdf;
 write_sdc netlist/${design_name}_syn.sdc
 
+exit
