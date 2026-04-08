@@ -15,4 +15,5 @@ DVEfiles/
 */reports/*
 !*/reports/.gitkeep
 gen_imem2.py
-gen_imem3.py
+gen_imem3.pyprocessor/netlist/*.sdf
+processor/netlist/*.v

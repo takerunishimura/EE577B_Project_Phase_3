@@ -9,10 +9,11 @@ set design_name $env(DESIGN_NAME);
 
 ## For NCSUFreePDK45nm library
 set search_path [ list . \
-                  /tools/PDK/NCSU45PDK/FreePDK45/osu_soc/lib/files/ ]
+                  /tools/PDK/NCSU45PDK/FreePDK45/osu_soc/lib/files/ \
+                  /tools/synopsys/syn/Y-2026.03/libraries/syn/ ]
 set target_library { gscl45nm.db }
-set synthetic_library [list dw_foundation.sldb standard.sldb ]
-set link_library [list * gscl45nm.db dw_foundation.sldb standard.sldb]
+set synthetic_library [list /tools/synopsys/syn/Y-2026.03/libraries/syn/dw_foundation.sldb standard.sldb ]
+set link_library [list * gscl45nm.db /tools/synopsys/syn/Y-2026.03/libraries/syn/dw_foundation.sldb standard.sldb]
 
 
 # Reading source verilog file.
@@ -54,7 +55,7 @@ create_clock -name clk -period 4 -waveform [list 0 2] [get_ports clk]
 check_design > report/$design_name.check_design ;
 
 # Perforing synthesis and optimization on the current_design.
-compile ;
+compile -map_effort low -area_effort low ;
 # compile_ultra
 
 # For better synthesis result, use "" command.

@@ -46,11 +46,8 @@ TOP_SYN = tb_syn_cardinal_cpu
 DESIGN_NAME = cardinal_cpu
 
 # List of the design files
-# CPU design selection: cardinal_cpu.v or cardinal_cpu_fwd.v
-CPU = cardinal_cpu_fwd
 DW_PATH = /tools/synopsys/syn/Y-2026.03/dw/sim_ver
-DESIGN_FILES = ./design/alu.v ./design/instr_decode.v ./design/reg_file.v ./design/sfu.v ./design/$(CPU).v ../router/design/*.v $(DW_PATH)/DW_div.v $(DW_PATH)/DW_sqrt.v
-NETLIST_FILES = ./netlist/*.v
+DESIGN_FILES = ./design/alu.v ./design/instr_decode.v ./design/reg_file.v ./design/sfu.v ./design/cardinal_cpu.v ../router/design/*.v $(DW_PATH)/DW_div.v $(DW_PATH)/DW_sqrt.vNETLIST_FILES = ./netlist/*.v
 
 # List of the testbench files
 TB_FILES = ./tb/*.v

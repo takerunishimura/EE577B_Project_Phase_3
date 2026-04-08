@@ -1,0 +1,711 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'cardinal_cpu' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : cardinal_cpu
+Version: Y-2026.03
+Date   : Tue Apr  7 22:53:04 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: ID_EX_srcB_addr_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: pc_out_reg[29]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ID_EX_srcB_addr_reg[1]/CLK (DFFPOSX1)                   0.00 #     0.00 r
+  ID_EX_srcB_addr_reg[1]/Q (DFFPOSX1)                     0.11       0.11 f
+  FWD_EX/srcB_addr[1] (forwarding_unit_ex)                0.00       0.11 f
+  FWD_EX/U99/Y (OAI21X1)                                  0.05       0.15 r
+  FWD_EX/U100/Y (NAND3X1)                                 0.02       0.17 f
+  FWD_EX/U63/Y (AND2X2)                                   0.04       0.22 f
+  FWD_EX/U107/Y (NAND2X1)                                 0.03       0.25 r
+  FWD_EX/U29/Y (INVX2)                                    0.03       0.28 f
+  FWD_EX/U108/Y (MUX2X1)                                  0.05       0.33 r
+  FWD_EX/U48/Y (INVX4)                                    0.03       0.36 f
+  FWD_EX/fwdB_value[62] (forwarding_unit_ex)              0.00       0.36 f
+  u_sfu/rB[62] (sfu)                                      0.00       0.36 f
+  u_sfu/U_MOD64/b[62] (sfu_modu_lane_W64)                 0.00       0.36 f
+  u_sfu/U_MOD64/U2015/Y (INVX1)                           0.01       0.37 r
+  u_sfu/U_MOD64/U873/Y (INVX2)                            0.04       0.41 f
+  u_sfu/U_MOD64/U2082/Y (INVX8)                           0.08       0.49 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/B[2] (sfu_modu_lane_W64_DW01_add_1092)
+                                                          0.00       0.49 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U813/Y (NOR2X1)         0.06       0.55 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U807/Y (OAI21X1)        0.05       0.60 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U792/Y (AOI21X1)        0.03       0.63 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U715/Y (OAI21X1)        0.06       0.69 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U592/Y (AOI21X1)        0.04       0.72 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U385/Y (OAI21X1)        0.04       0.77 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U930/Y (INVX2)          0.03       0.80 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U932/Y (INVX2)          0.04       0.84 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U53/Y (AOI21X1)         0.03       0.87 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/U36/Y (XOR2X1)          0.04       0.91 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_B6/SUM[63] (sfu_modu_lane_W64_DW01_add_1092)
+                                                          0.00       0.91 f
+  u_sfu/U_MOD64/U2058/Y (BUFX4)                           0.05       0.96 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_20_6/B[63] (sfu_modu_lane_W64_DW01_add_1129)
+                                                          0.00       0.96 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_20_6/U16/Y (NAND2X1)
+                                                          0.03       0.99 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_20_6/U11/Y (NOR2X1)
+                                                          0.02       1.01 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_20_6/U396/Y (AND2X2)
+                                                          0.03       1.04 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_20_6/U4/Y (NAND2X1)
+                                                          0.02       1.06 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_20_6/U3/Y (NOR2X1)
+                                                          0.02       1.08 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_20_6/CO (sfu_modu_lane_W64_DW01_add_1129)
+                                                          0.00       1.08 f
+  u_sfu/U_MOD64/U3104/Y (NAND2X1)                         0.01       1.10 r
+  u_sfu/U_MOD64/U1259/Y (BUFX2)                           0.04       1.14 r
+  u_sfu/U_MOD64/U3116/Y (NAND2X1)                         0.02       1.16 f
+  u_sfu/U_MOD64/U1910/Y (BUFX4)                           0.05       1.21 f
+  u_sfu/U_MOD64/U3149/Y (NOR2X1)                          0.03       1.25 r
+  u_sfu/U_MOD64/U3152/Y (NOR3X1)                          0.04       1.29 f
+  u_sfu/U_MOD64/U3153/Y (NAND3X1)                         0.03       1.32 r
+  u_sfu/U_MOD64/U3154/Y (OAI21X1)                         0.02       1.34 f
+  u_sfu/U_MOD64/U1913/Y (BUFX4)                           0.05       1.40 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_19_4/A[5] (sfu_modu_lane_W64_DW01_add_1387)
+                                                          0.00       1.40 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_19_4/U334/Y (NOR2X1)
+                                                          0.04       1.44 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_19_4/U330/Y (NOR2X1)
+                                                          0.02       1.46 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_19_4/U329/Y (AOI21X1)
+                                                          0.04       1.50 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_19_4/U3/Y (OAI21X1)
+                                                          0.03       1.52 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_19_4/CO (sfu_modu_lane_W64_DW01_add_1387)
+                                                          0.00       1.52 f
+  u_sfu/U_MOD64/U3179/Y (INVX2)                           0.02       1.55 r
+  u_sfu/U_MOD64/U943/Y (AND2X2)                           0.04       1.59 r
+  u_sfu/U_MOD64/U2089/Y (INVX8)                           0.03       1.62 f
+  u_sfu/U_MOD64/U3275/Y (OR2X2)                           0.05       1.67 f
+  u_sfu/U_MOD64/U3276/Y (OAI21X1)                         0.02       1.69 r
+  u_sfu/U_MOD64/U3279/Y (NOR3X1)                          0.04       1.73 f
+  u_sfu/U_MOD64/U3280/Y (MUX2X1)                          0.05       1.78 r
+  u_sfu/U_MOD64/U2018/Y (INVX4)                           0.03       1.82 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_18_2/A[4] (sfu_modu_lane_W64_DW01_add_1400)
+                                                          0.00       1.82 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_18_2/U357/Y (NOR2X1)
+                                                          0.05       1.87 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_18_2/U347/Y (NOR2X1)
+                                                          0.02       1.89 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_18_2/U346/Y (AOI21X1)
+                                                          0.04       1.93 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_18_2/U305/Y (OAI21X1)
+                                                          0.02       1.96 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_18_2/U8/Y (AOI21X1)
+                                                          0.03       1.99 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_18_2/U377/Y (INVX1)
+                                                          0.03       2.02 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_18_2/CO (sfu_modu_lane_W64_DW01_add_1400)
+                                                          0.00       2.02 f
+  u_sfu/U_MOD64/U288/Y (NOR2X1)                           0.04       2.06 r
+  u_sfu/U_MOD64/U289/Y (INVX4)                            0.04       2.10 f
+  u_sfu/U_MOD64/U1717/Y (INVX8)                           0.03       2.12 r
+  u_sfu/U_MOD64/U3430/Y (NAND2X1)                         0.01       2.14 f
+  u_sfu/U_MOD64/U3431/Y (OAI21X1)                         0.02       2.16 r
+  u_sfu/U_MOD64/U3432/Y (OR2X2)                           0.05       2.20 r
+  u_sfu/U_MOD64/U551/Y (INVX1)                            0.02       2.23 f
+  u_sfu/U_MOD64/U3438/Y (MUX2X1)                          0.05       2.28 r
+  u_sfu/U_MOD64/U449/Y (INVX2)                            0.03       2.31 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/A[3] (sfu_modu_lane_W64_DW01_add_1297)
+                                                          0.00       2.31 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/U394/Y (NOR2X1)
+                                                          0.04       2.35 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/U390/Y (OAI21X1)
+                                                          0.03       2.37 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/U375/Y (AOI21X1)
+                                                          0.05       2.42 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/U334/Y (OAI21X1)
+                                                          0.03       2.44 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/U466/Y (BUFX4)
+                                                          0.05       2.49 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/U4/Y (AOI21X1)
+                                                          0.03       2.52 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/U409/Y (INVX1)
+                                                          0.03       2.55 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_17_6/CO (sfu_modu_lane_W64_DW01_add_1297)
+                                                          0.00       2.55 f
+  u_sfu/U_MOD64/U3452/Y (NAND3X1)                         0.05       2.60 r
+  u_sfu/U_MOD64/U2093/Y (BUFX4)                           0.03       2.63 r
+  u_sfu/U_MOD64/U3533/Y (OR2X2)                           0.05       2.68 r
+  u_sfu/U_MOD64/U3534/Y (OAI21X1)                         0.02       2.69 f
+  u_sfu/U_MOD64/U3535/Y (NOR3X1)                          0.02       2.72 r
+  u_sfu/U_MOD64/U3540/Y (NAND2X1)                         0.03       2.75 f
+  u_sfu/U_MOD64/U1134/Y (INVX4)                           0.04       2.79 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/A[10] (sfu_modu_lane_W64_DW01_add_1275)
+                                                          0.00       2.79 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/U342/Y (NAND2X1)
+                                                          0.03       2.81 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/U332/Y (OAI21X1)
+                                                          0.06       2.88 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/U306/Y (AOI21X1)
+                                                          0.04       2.91 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/U254/Y (OAI21X1)
+                                                          0.04       2.96 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/U252/Y (AOI21X1)
+                                                          0.02       2.98 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/U3/Y (NOR2X1)
+                                                          0.03       3.01 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/U464/Y (INVX1)
+                                                          0.03       3.03 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/U465/Y (INVX4)
+                                                          0.02       3.06 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_16_4/CO (sfu_modu_lane_W64_DW01_add_1275)
+                                                          0.00       3.06 r
+  u_sfu/U_MOD64/U423/Y (INVX1)                            0.02       3.08 f
+  u_sfu/U_MOD64/U945/Y (AND2X2)                           0.04       3.11 f
+  u_sfu/U_MOD64/U3628/Y (NAND2X1)                         0.03       3.14 r
+  u_sfu/U_MOD64/U2101/Y (BUFX4)                           0.05       3.19 r
+  u_sfu/U_MOD64/U3693/Y (OR2X2)                           0.05       3.24 r
+  u_sfu/U_MOD64/U3694/Y (OAI21X1)                         0.02       3.25 f
+  u_sfu/U_MOD64/U3697/Y (NOR3X1)                          0.05       3.30 r
+  u_sfu/U_MOD64/U3703/Y (NAND2X1)                         0.03       3.33 f
+  u_sfu/U_MOD64/U2031/Y (INVX4)                           0.04       3.37 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_15_2/A[15] (sfu_modu_lane_W64_DW01_add_287)
+                                                          0.00       3.37 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_15_2/U334/Y (NOR2X1)
+                                                          0.03       3.40 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_15_2/U330/Y (NOR2X1)
+                                                          0.05       3.45 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_15_2/U302/Y (NAND2X1)
+                                                          0.03       3.48 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_15_2/U301/Y (OAI21X1)
+                                                          0.05       3.52 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_15_2/U299/Y (AOI21X1)
+                                                          0.02       3.55 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_15_2/U4/Y (OAI21X1)
+                                                          0.06       3.61 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_15_2/CO (sfu_modu_lane_W64_DW01_add_287)
+                                                          0.00       3.61 r
+  u_sfu/U_MOD64/U390/Y (INVX2)                            0.02       3.63 f
+  u_sfu/U_MOD64/U982/Y (AND2X2)                           0.04       3.67 f
+  u_sfu/U_MOD64/U3840/Y (NAND2X1)                         0.03       3.71 r
+  u_sfu/U_MOD64/U2122/Y (INVX4)                           0.04       3.75 f
+  u_sfu/U_MOD64/U4011/Y (NAND2X1)                         0.03       3.78 r
+  u_sfu/U_MOD64/U4012/Y (OAI21X1)                         0.02       3.80 f
+  u_sfu/U_MOD64/U4015/Y (NOR3X1)                          0.05       3.85 r
+  u_sfu/U_MOD64/U4021/Y (NAND2X1)                         0.03       3.87 f
+  u_sfu/U_MOD64/U4022/Y (INVX2)                           0.04       3.91 r
+  u_sfu/U_MOD64/U1223/Y (INVX1)                           0.03       3.94 f
+  u_sfu/U_MOD64/U1224/Y (INVX4)                           0.02       3.96 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/A[9] (sfu_modu_lane_W64_DW01_add_336)
+                                                          0.00       3.96 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/U406/Y (NOR2X1)
+                                                          0.02       3.99 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/U402/Y (NOR2X1)
+                                                          0.04       4.02 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/U400/Y (NAND2X1)
+                                                          0.02       4.05 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/U399/Y (OAI21X1)
+                                                          0.05       4.10 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/U306/Y (AOI21X1)
+                                                          0.03       4.12 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/U536/Y (BUFX2)
+                                                          0.05       4.18 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/U4/Y (OAI21X1)
+                                                          0.06       4.24 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_14_5/CO (sfu_modu_lane_W64_DW01_add_336)
+                                                          0.00       4.24 r
+  u_sfu/U_MOD64/U4110/Y (INVX2)                           0.02       4.26 f
+  u_sfu/U_MOD64/U2158/Y (NAND2X1)                         0.02       4.29 r
+  u_sfu/U_MOD64/U2160/Y (BUFX4)                           0.03       4.32 r
+  u_sfu/U_MOD64/U4305/Y (OR2X2)                           0.05       4.36 r
+  u_sfu/U_MOD64/U4306/Y (OAI21X1)                         0.02       4.38 f
+  u_sfu/U_MOD64/U4309/Y (NOR3X1)                          0.05       4.43 r
+  u_sfu/U_MOD64/U4310/Y (NAND2X1)                         0.03       4.46 f
+  u_sfu/U_MOD64/U4311/Y (INVX2)                           0.06       4.51 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/A[9] (sfu_modu_lane_W64_DW01_add_1277)
+                                                          0.00       4.51 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/U392/Y (NOR2X1)
+                                                          0.04       4.55 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/U388/Y (NOR2X1)
+                                                          0.04       4.59 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/U386/Y (NAND2X1)
+                                                          0.02       4.61 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/U385/Y (OAI21X1)
+                                                          0.05       4.66 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/U292/Y (AOI21X1)
+                                                          0.03       4.69 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/U533/Y (BUFX4)
+                                                          0.05       4.74 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/U4/Y (OAI21X1)
+                                                          0.06       4.80 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_13_4/CO (sfu_modu_lane_W64_DW01_add_1277)
+                                                          0.00       4.80 r
+  u_sfu/U_MOD64/U1474/Y (BUFX4)                           0.02       4.83 r
+  u_sfu/U_MOD64/U941/Y (AND2X2)                           0.04       4.86 r
+  u_sfu/U_MOD64/U4401/Y (NAND2X1)                         0.02       4.88 f
+  u_sfu/U_MOD64/U4402/Y (NAND2X1)                         0.02       4.90 r
+  u_sfu/U_MOD64/U211/Y (INVX2)                            0.03       4.94 f
+  u_sfu/U_MOD64/U267/Y (INVX1)                            0.02       4.96 r
+  u_sfu/U_MOD64/U4616/Y (OR2X2)                           0.04       5.00 r
+  u_sfu/U_MOD64/U4617/Y (OAI21X1)                         0.01       5.02 f
+  u_sfu/U_MOD64/U4618/Y (OR2X2)                           0.05       5.06 f
+  u_sfu/U_MOD64/U1309/Y (INVX1)                           0.00       5.06 r
+  u_sfu/U_MOD64/U4709/Y (NAND2X1)                         0.02       5.08 f
+  u_sfu/U_MOD64/U1609/Y (INVX4)                           0.04       5.12 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/A[10] (sfu_modu_lane_W64_DW01_add_1318)
+                                                          0.00       5.12 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/U408/Y (NAND2X1)
+                                                          0.03       5.14 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/U398/Y (OAI21X1)
+                                                          0.06       5.21 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/U372/Y (AOI21X1)
+                                                          0.04       5.24 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/U320/Y (OAI21X1)
+                                                          0.04       5.28 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/U318/Y (AOI21X1)
+                                                          0.02       5.31 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/U563/Y (BUFX4)
+                                                          0.06       5.37 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/U7/Y (OAI21X1)
+                                                          0.05       5.42 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_12_2/CO (sfu_modu_lane_W64_DW01_add_1318)
+                                                          0.00       5.42 r
+  u_sfu/U_MOD64/U403/Y (INVX2)                            0.02       5.44 f
+  u_sfu/U_MOD64/U4722/Y (NAND3X1)                         0.04       5.48 r
+  u_sfu/U_MOD64/U4723/Y (INVX2)                           0.03       5.50 f
+  u_sfu/U_MOD64/U2246/Y (INVX8)                           0.02       5.53 r
+  u_sfu/U_MOD64/U2244/Y (INVX8)                           0.03       5.55 f
+  u_sfu/U_MOD64/U4999/Y (NAND2X1)                         0.02       5.58 r
+  u_sfu/U_MOD64/U5000/Y (OAI21X1)                         0.02       5.60 f
+  u_sfu/U_MOD64/U5003/Y (NOR3X1)                          0.05       5.64 r
+  u_sfu/U_MOD64/U5009/Y (NAND2X1)                         0.03       5.67 f
+  u_sfu/U_MOD64/U577/Y (INVX2)                            0.04       5.71 r
+  u_sfu/U_MOD64/U268/Y (INVX2)                            0.02       5.73 f
+  u_sfu/U_MOD64/U1433/Y (INVX4)                           0.02       5.75 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/A[9] (sfu_modu_lane_W64_DW01_add_1316)
+                                                          0.00       5.75 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/U467/Y (NOR2X1)
+                                                          0.02       5.78 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/U463/Y (NOR2X1)
+                                                          0.04       5.82 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/U461/Y (NAND2X1)
+                                                          0.02       5.84 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/U460/Y (OAI21X1)
+                                                          0.05       5.89 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/U367/Y (AOI21X1)
+                                                          0.03       5.91 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/U623/Y (INVX1)
+                                                          0.03       5.94 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/U631/Y (INVX8)
+                                                          0.03       5.97 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/U7/Y (OAI21X1)
+                                                          0.06       6.03 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_11_5/CO (sfu_modu_lane_W64_DW01_add_1316)
+                                                          0.00       6.03 r
+  u_sfu/U_MOD64/U236/Y (INVX1)                            0.04       6.07 f
+  u_sfu/U_MOD64/U5257/Y (NAND2X1)                         0.03       6.10 r
+  u_sfu/U_MOD64/U2169/Y (BUFX4)                           0.04       6.14 r
+  u_sfu/U_MOD64/U5170/Y (OR2X2)                           0.05       6.19 r
+  u_sfu/U_MOD64/U5171/Y (OAI21X1)                         0.02       6.21 f
+  u_sfu/U_MOD64/U5174/Y (NOR3X1)                          0.05       6.25 r
+  u_sfu/U_MOD64/U212/Y (AND2X2)                           0.08       6.33 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/A[29] (sfu_modu_lane_W64_DW01_add_1304)
+                                                          0.00       6.33 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/U252/Y (NOR2X1)
+                                                          0.04       6.37 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/U248/Y (NOR2X1)
+                                                          0.04       6.41 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/U246/Y (NAND2X1)
+                                                          0.03       6.44 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/U186/Y (NOR2X1)
+                                                          0.04       6.49 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/U184/Y (NAND2X1)
+                                                          0.02       6.51 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/U183/Y (OAI21X1)
+                                                          0.05       6.56 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/U8/Y (AOI21X1)
+                                                          0.02       6.58 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/U641/Y (INVX1)
+                                                          0.02       6.60 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_10_2/CO (sfu_modu_lane_W64_DW01_add_1304)
+                                                          0.00       6.60 r
+  u_sfu/U_MOD64/U1880/Y (INVX1)                           0.01       6.61 f
+  u_sfu/U_MOD64/U5489/Y (NAND2X1)                         0.03       6.64 r
+  u_sfu/U_MOD64/U1865/Y (INVX1)                           0.02       6.67 f
+  u_sfu/U_MOD64/U986/Y (AND2X2)                           0.04       6.70 f
+  u_sfu/U_MOD64/U304/Y (INVX4)                            0.02       6.73 r
+  u_sfu/U_MOD64/U357/Y (INVX4)                            0.03       6.76 f
+  u_sfu/U_MOD64/U5795/Y (NAND2X1)                         0.03       6.79 r
+  u_sfu/U_MOD64/U5796/Y (OAI21X1)                         0.02       6.81 f
+  u_sfu/U_MOD64/U5799/Y (NOR3X1)                          0.05       6.85 r
+  u_sfu/U_MOD64/U5805/Y (NAND2X1)                         0.03       6.88 f
+  u_sfu/U_MOD64/U5806/Y (INVX2)                           0.06       6.94 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/A[13] (sfu_modu_lane_W64_DW01_add_1302)
+                                                          0.00       6.94 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U472/Y (NOR2X1)
+                                                          0.04       6.98 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U468/Y (NOR2X1)
+                                                          0.04       7.01 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U467/Y (AOI21X1)
+                                                          0.04       7.05 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U415/Y (OAI21X1)
+                                                          0.04       7.10 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U413/Y (AOI21X1)
+                                                          0.02       7.12 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U206/Y (OAI21X1)
+                                                          0.04       7.16 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U613/Y (BUFX2)
+                                                          0.06       7.22 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U4/Y (AOI21X1)
+                                                          0.02       7.24 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/U693/Y (INVX1)
+                                                          0.00       7.24 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_9_7/CO (sfu_modu_lane_W64_DW01_add_1302)
+                                                          0.00       7.24 r
+  u_sfu/U_MOD64/U1315/Y (INVX1)                           0.02       7.25 f
+  u_sfu/U_MOD64/U5931/Y (NAND3X1)                         0.03       7.28 r
+  u_sfu/U_MOD64/U315/Y (INVX1)                            0.03       7.31 f
+  u_sfu/U_MOD64/U1373/Y (INVX4)                           0.02       7.33 r
+  u_sfu/U_MOD64/U2269/Y (INVX8)                           0.03       7.36 f
+  u_sfu/U_MOD64/U2268/Y (INVX8)                           0.02       7.38 r
+  u_sfu/U_MOD64/U6304/Y (OR2X2)                           0.04       7.42 r
+  u_sfu/U_MOD64/U6305/Y (OAI21X1)                         0.02       7.44 f
+  u_sfu/U_MOD64/U6308/Y (NOR3X1)                          0.05       7.48 r
+  u_sfu/U_MOD64/U6309/Y (NAND2X1)                         0.03       7.51 f
+  u_sfu/U_MOD64/U6310/Y (INVX2)                           0.03       7.55 r
+  u_sfu/U_MOD64/U1234/Y (INVX1)                           0.02       7.57 f
+  u_sfu/U_MOD64/U597/Y (INVX2)                            0.03       7.60 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/A[9] (sfu_modu_lane_W64_DW01_add_654)
+                                                          0.00       7.60 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U536/Y (NOR2X1)
+                                                          0.03       7.63 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U532/Y (NOR2X1)
+                                                          0.04       7.67 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U530/Y (NAND2X1)
+                                                          0.02       7.69 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U529/Y (OAI21X1)
+                                                          0.05       7.74 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U436/Y (AOI21X1)
+                                                          0.04       7.78 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U229/Y (OAI21X1)
+                                                          0.05       7.83 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U708/Y (BUFX4)
+                                                          0.04       7.87 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U4/Y (AOI21X1)
+                                                          0.02       7.89 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/U731/Y (INVX2)
+                                                          0.03       7.92 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_8_5/CO (sfu_modu_lane_W64_DW01_add_654)
+                                                          0.00       7.92 r
+  u_sfu/U_MOD64/U1715/Y (NOR2X1)                          0.01       7.93 f
+  u_sfu/U_MOD64/U1340/Y (INVX1)                           0.00       7.94 r
+  u_sfu/U_MOD64/U1032/Y (INVX2)                           0.03       7.97 f
+  u_sfu/U_MOD64/U383/Y (INVX4)                            0.03       7.99 r
+  u_sfu/U_MOD64/U6794/Y (OR2X2)                           0.04       8.04 r
+  u_sfu/U_MOD64/U6795/Y (OAI21X1)                         0.02       8.05 f
+  u_sfu/U_MOD64/U6798/Y (NOR3X1)                          0.05       8.10 r
+  u_sfu/U_MOD64/U6799/Y (NAND2X1)                         0.03       8.13 f
+  u_sfu/U_MOD64/U2036/Y (INVX4)                           0.04       8.17 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/A[10] (sfu_modu_lane_W64_DW01_add_1270)
+                                                          0.00       8.17 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U542/Y (NAND2X1)
+                                                          0.02       8.19 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U532/Y (OAI21X1)
+                                                          0.06       8.25 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U506/Y (AOI21X1)
+                                                          0.04       8.29 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U454/Y (OAI21X1)
+                                                          0.04       8.33 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U452/Y (AOI21X1)
+                                                          0.02       8.36 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U245/Y (OAI21X1)
+                                                          0.06       8.42 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U710/Y (BUFX4)
+                                                          0.03       8.45 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U6/Y (AOI21X1)
+                                                          0.02       8.47 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/U636/Y (INVX2)
+                                                          0.03       8.50 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_7_4/CO (sfu_modu_lane_W64_DW01_add_1270)
+                                                          0.00       8.50 r
+  u_sfu/U_MOD64/U1879/Y (INVX4)                           0.03       8.52 f
+  u_sfu/U_MOD64/U6877/Y (NAND2X1)                         0.03       8.55 r
+  u_sfu/U_MOD64/U1813/Y (INVX1)                           0.02       8.57 f
+  u_sfu/U_MOD64/U1277/Y (AND2X2)                          0.04       8.62 f
+  u_sfu/U_MOD64/U324/Y (INVX1)                            0.01       8.63 r
+  u_sfu/U_MOD64/U333/Y (INVX1)                            0.02       8.65 f
+  u_sfu/U_MOD64/U7396/Y (AOI21X1)                         0.04       8.68 r
+  u_sfu/U_MOD64/U7397/Y (OAI21X1)                         0.02       8.70 f
+  u_sfu/U_MOD64/U7400/Y (NOR3X1)                          0.05       8.75 r
+  u_sfu/U_MOD64/U7401/Y (NAND3X1)                         0.02       8.78 f
+  u_sfu/U_MOD64/U1220/Y (INVX1)                           0.01       8.78 r
+  u_sfu/U_MOD64/U1218/Y (INVX2)                           0.03       8.81 f
+  u_sfu/U_MOD64/U1219/Y (INVX8)                           0.02       8.83 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/A[3] (sfu_modu_lane_W64_DW01_add_1314)
+                                                          0.00       8.83 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U632/Y (NOR2X1)
+                                                          0.02       8.85 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U628/Y (OAI21X1)
+                                                          0.05       8.90 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U613/Y (AOI21X1)
+                                                          0.03       8.93 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U572/Y (OAI21X1)
+                                                          0.05       8.98 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U479/Y (AOI21X1)
+                                                          0.03       9.01 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U272/Y (OAI21X1)
+                                                          0.05       9.06 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U657/Y (BUFX2)
+                                                          0.04       9.10 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U9/Y (AOI21X1)
+                                                          0.02       9.11 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/U645/Y (INVX1)
+                                                          0.03       9.14 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_6_2/CO (sfu_modu_lane_W64_DW01_add_1314)
+                                                          0.00       9.14 r
+  u_sfu/U_MOD64/U1343/Y (INVX1)                           0.02       9.16 f
+  u_sfu/U_MOD64/U948/Y (AND2X2)                           0.04       9.20 f
+  u_sfu/U_MOD64/U7622/Y (NAND2X1)                         0.04       9.24 r
+  u_sfu/U_MOD64/U2212/Y (INVX4)                           0.04       9.28 f
+  u_sfu/U_MOD64/U7682/Y (NAND2X1)                         0.04       9.32 r
+  u_sfu/U_MOD64/U7683/Y (OAI21X1)                         0.02       9.34 f
+  u_sfu/U_MOD64/U7686/Y (NOR3X1)                          0.05       9.39 r
+  u_sfu/U_MOD64/U7692/Y (NAND2X1)                         0.03       9.41 f
+  u_sfu/U_MOD64/U7693/Y (INVX2)                           0.06       9.47 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/A[27] (sfu_modu_lane_W64_DW01_add_1381)
+                                                          0.00       9.47 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/U406/Y (NOR2X1)
+                                                          0.04       9.51 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/U403/Y (OAI21X1)
+                                                          0.06       9.57 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/U373/Y (AOI21X1)
+                                                          0.04       9.60 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/U313/Y (OAI21X1)
+                                                          0.04       9.65 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/U311/Y (AOI21X1)
+                                                          0.02       9.67 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/U309/Y (OAI21X1)
+                                                          0.03       9.69 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/U7/Y (AOI21X1)
+                                                          0.03       9.72 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/U778/Y (INVX4)
+                                                          0.02       9.75 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_5_4/CO (sfu_modu_lane_W64_DW01_add_1381)
+                                                          0.00       9.75 r
+  u_sfu/U_MOD64/U143/Y (INVX1)                            0.02       9.76 f
+  u_sfu/U_MOD64/U144/Y (INVX1)                            0.02       9.79 r
+  u_sfu/U_MOD64/U7982/Y (NAND3X1)                         0.01       9.80 f
+  u_sfu/U_MOD64/U1542/Y (INVX2)                           0.03       9.83 r
+  u_sfu/U_MOD64/U230/Y (INVX4)                            0.04       9.87 f
+  u_sfu/U_MOD64/U716/Y (OR2X1)                            0.05       9.92 f
+  u_sfu/U_MOD64/U8519/Y (OAI21X1)                         0.02       9.94 r
+  u_sfu/U_MOD64/U8520/Y (OR2X2)                           0.05       9.98 r
+  u_sfu/U_MOD64/U501/Y (INVX1)                            0.02      10.00 f
+  u_sfu/U_MOD64/U8521/Y (NAND2X1)                         0.03      10.03 r
+  u_sfu/U_MOD64/U8522/Y (INVX2)                           0.03      10.06 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/A[5] (sfu_modu_lane_W64_DW01_add_1261)
+                                                          0.00      10.06 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U778/Y (NOR2X1)
+                                                          0.03      10.09 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U900/Y (INVX1)
+                                                          0.03      10.12 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U772/Y (NAND2X1)
+                                                          0.04      10.16 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U744/Y (NOR2X1)
+                                                          0.03      10.19 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U743/Y (AOI21X1)
+                                                          0.05      10.24 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U634/Y (OAI21X1)
+                                                          0.03      10.26 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U395/Y (AOI21X1)
+                                                          0.04      10.31 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U916/Y (INVX4)
+                                                          0.03      10.34 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U932/Y (INVX8)
+                                                          0.03      10.37 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/U10/Y (OAI21X1)
+                                                          0.02      10.39 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_4_2/CO (sfu_modu_lane_W64_DW01_add_1261)
+                                                          0.00      10.39 f
+  u_sfu/U_MOD64/U8564/Y (INVX2)                           0.02      10.41 r
+  u_sfu/U_MOD64/U8567/Y (AOI22X1)                         0.02      10.43 f
+  u_sfu/U_MOD64/U8570/Y (OAI21X1)                         0.05      10.48 r
+  u_sfu/U_MOD64/U371/Y (INVX2)                            0.03      10.50 f
+  u_sfu/U_MOD64/U8579/Y (NAND2X1)                         0.02      10.52 r
+  u_sfu/U_MOD64/U1789/Y (INVX2)                           0.04      10.56 f
+  u_sfu/U_MOD64/U195/Y (INVX4)                            0.04      10.59 r
+  u_sfu/U_MOD64/U9082/Y (OR2X2)                           0.05      10.64 r
+  u_sfu/U_MOD64/U9083/Y (OAI21X1)                         0.02      10.66 f
+  u_sfu/U_MOD64/U9086/Y (NOR3X1)                          0.05      10.70 r
+  u_sfu/U_MOD64/U9087/Y (NAND2X1)                         0.03      10.73 f
+  u_sfu/U_MOD64/U9088/Y (INVX2)                           0.06      10.79 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/A[13] (sfu_modu_lane_W64_DW01_add_451)
+                                                          0.00      10.79 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U623/Y (NOR2X1)
+                                                          0.04      10.83 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U620/Y (OAI21X1)
+                                                          0.04      10.87 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U618/Y (AOI21X1)
+                                                          0.03      10.90 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U566/Y (OAI21X1)
+                                                          0.04      10.95 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U564/Y (AOI21X1)
+                                                          0.03      10.98 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U357/Y (OAI21X1)
+                                                          0.05      11.02 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U817/Y (INVX2)
+                                                          0.03      11.05 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U830/Y (INVX8)
+                                                          0.04      11.09 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U12/Y (AOI21X1)
+                                                          0.02      11.11 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/U728/Y (INVX1)
+                                                          0.01      11.12 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_3_2/CO (sfu_modu_lane_W64_DW01_add_451)
+                                                          0.00      11.12 r
+  u_sfu/U_MOD64/U1254/Y (INVX1)                           0.02      11.14 f
+  u_sfu/U_MOD64/U1253/Y (AND2X2)                          0.04      11.18 f
+  u_sfu/U_MOD64/U1495/Y (AND2X2)                          0.04      11.22 f
+  u_sfu/U_MOD64/U2390/Y (INVX8)                           0.02      11.24 r
+  u_sfu/U_MOD64/U2388/Y (INVX8)                           0.03      11.27 f
+  u_sfu/U_MOD64/U9550/Y (NAND2X1)                         0.03      11.29 r
+  u_sfu/U_MOD64/U9551/Y (OAI21X1)                         0.02      11.31 f
+  u_sfu/U_MOD64/U9554/Y (NOR3X1)                          0.05      11.36 r
+  u_sfu/U_MOD64/U9560/Y (NAND2X1)                         0.03      11.39 f
+  u_sfu/U_MOD64/U9561/Y (INVX2)                           0.06      11.45 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/A[30] (sfu_modu_lane_W64_DW01_add_1263)
+                                                          0.00      11.45 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U442/Y (NOR2X1)
+                                                          0.04      11.48 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U426/Y (NOR2X1)
+                                                          0.05      11.53 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U394/Y (NAND2X1)
+                                                          0.03      11.56 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U392/Y (NOR2X1)
+                                                          0.04      11.60 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U390/Y (NAND2X1)
+                                                          0.02      11.62 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U389/Y (OAI21X1)
+                                                          0.05      11.67 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U850/Y (INVX2)
+                                                          0.03      11.70 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U879/Y (INVX8)
+                                                          0.04      11.73 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U9/Y (AOI21X1)
+                                                          0.03      11.76 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/U872/Y (INVX4)
+                                                          0.03      11.79 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_2_4/CO (sfu_modu_lane_W64_DW01_add_1263)
+                                                          0.00      11.79 r
+  u_sfu/U_MOD64/U733/Y (INVX1)                            0.02      11.80 f
+  u_sfu/U_MOD64/U897/Y (AND2X2)                           0.04      11.84 f
+  u_sfu/U_MOD64/U10198/Y (NAND2X1)                        0.03      11.88 r
+  u_sfu/U_MOD64/U2213/Y (INVX4)                           0.04      11.92 f
+  u_sfu/U_MOD64/U10481/Y (NAND2X1)                        0.03      11.95 r
+  u_sfu/U_MOD64/U10482/Y (OAI21X1)                        0.02      11.97 f
+  u_sfu/U_MOD64/U10485/Y (NOR3X1)                         0.05      12.02 r
+  u_sfu/U_MOD64/U10491/Y (NAND2X1)                        0.04      12.06 f
+  u_sfu/U_MOD64/U1544/Y (INVX8)                           0.03      12.09 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/A[10] (sfu_modu_lane_W64_DW01_add_1262)
+                                                          0.00      12.09 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U717/Y (NAND2X1)
+                                                          0.03      12.11 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U707/Y (OAI21X1)
+                                                          0.06      12.18 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U681/Y (AOI21X1)
+                                                          0.04      12.21 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U629/Y (OAI21X1)
+                                                          0.04      12.26 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U627/Y (AOI21X1)
+                                                          0.02      12.28 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U420/Y (OAI21X1)
+                                                          0.04      12.32 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U800/Y (INVX2)
+                                                          0.03      12.36 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U913/Y (INVX8)
+                                                          0.03      12.39 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U11/Y (AOI21X1)
+                                                          0.02      12.41 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/U905/Y (INVX2)
+                                                          0.03      12.44 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_1_4/CO (sfu_modu_lane_W64_DW01_add_1262)
+                                                          0.00      12.44 r
+  u_sfu/U_MOD64/U61/Y (INVX2)                             0.02      12.47 f
+  u_sfu/U_MOD64/U10574/Y (NAND3X1)                        0.03      12.50 r
+  u_sfu/U_MOD64/U1661/Y (INVX2)                           0.02      12.52 f
+  u_sfu/U_MOD64/U53/Y (INVX4)                             0.02      12.55 r
+  u_sfu/U_MOD64/U2439/Y (INVX8)                           0.03      12.57 f
+  u_sfu/U_MOD64/U2438/Y (INVX8)                           0.02      12.60 r
+  u_sfu/U_MOD64/U11233/Y (OR2X2)                          0.04      12.64 r
+  u_sfu/U_MOD64/U11234/Y (OAI21X1)                        0.02      12.65 f
+  u_sfu/U_MOD64/U11237/Y (NOR3X1)                         0.05      12.71 r
+  u_sfu/U_MOD64/U121/Y (AND2X2)                           0.06      12.77 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/A[6] (sfu_modu_lane_W64_DW01_add_1349)
+                                                          0.00      12.77 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/U771/Y (NAND2X1)
+                                                          0.03      12.80 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/U759/Y (OAI21X1)
+                                                          0.06      12.86 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/U735/Y (AOI21X1)
+                                                          0.03      12.89 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/U733/Y (OAI21X1)
+                                                          0.03      12.92 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/U640/Y (AOI21X1)
+                                                          0.03      12.95 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/U433/Y (OAI21X1)
+                                                          0.05      13.00 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/U8/Y (AOI21X1)
+                                                          0.03      13.03 f
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/U5/Y (NOR2X1)
+                                                          0.04      13.06 r
+  u_sfu/U_MOD64/U_DW_MOD/u_add_PartRem_0_5/CO (sfu_modu_lane_W64_DW01_add_1349)
+                                                          0.00      13.06 r
+  u_sfu/U_MOD64/U11290/Y (NAND3X1)                        0.02      13.09 f
+  u_sfu/U_MOD64/U1242/Y (OR2X2)                           0.05      13.14 f
+  u_sfu/U_MOD64/U84/Y (INVX8)                             0.08      13.21 r
+  u_sfu/U_MOD64/U11424/Y (AOI22X1)                        0.04      13.25 f
+  u_sfu/U_MOD64/U11426/Y (AND2X2)                         0.04      13.29 f
+  u_sfu/U_MOD64/U11427/Y (NAND3X1)                        0.03      13.32 r
+  u_sfu/U_MOD64/r[44] (sfu_modu_lane_W64)                 0.00      13.32 r
+  u_sfu/U195/Y (INVX1)                                    0.02      13.34 f
+  u_sfu/U670/Y (AOI22X1)                                  0.05      13.39 r
+  u_sfu/result[44] (sfu)                                  0.00      13.39 r
+  U1496/Y (NOR3X1)                                        0.06      13.44 f
+  U1498/Y (NAND3X1)                                       0.04      13.48 r
+  U1508/Y (NOR3X1)                                        0.04      13.52 f
+  U1396/Y (AND2X2)                                        0.04      13.56 f
+  U1744/Y (NAND3X1)                                       0.04      13.60 r
+  U1447/Y (INVX1)                                         0.03      13.63 f
+  U2353/Y (OAI21X1)                                       0.04      13.68 r
+  U2354/Y (INVX2)                                         0.02      13.70 f
+  U2374/Y (NAND3X1)                                       0.03      13.73 r
+  U2375/Y (INVX2)                                         0.04      13.77 f
+  U2391/Y (AOI22X1)                                       0.03      13.81 r
+  U2392/Y (OAI21X1)                                       0.02      13.83 f
+  pc_out_reg[29]/D (DFFPOSX1)                             0.00      13.83 f
+  data arrival time                                                 13.83
+
+  clock clk (rise edge)                                   4.00       4.00
+  clock network delay (ideal)                             0.00       4.00
+  pc_out_reg[29]/CLK (DFFPOSX1)                           0.00       4.00 r
+  library setup time                                     -0.06       3.94
+  data required time                                                 3.94
+  --------------------------------------------------------------------------
+  data required time                                                 3.94
+  data arrival time                                                -13.83
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -9.88
+
+
+1

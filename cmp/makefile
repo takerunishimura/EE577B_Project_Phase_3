@@ -46,8 +46,6 @@ TOP_SYN = tb_syn_cardinal_cmp
 DESIGN_NAME = cardinal_cmp
 
 # List of the design files
-# CPU design selection: cardinal_cpu.v or cardinal_cpu_fwd.v
-CPU = cardinal_cpu_fwd
 DW_PATH = /tools/synopsys/syn/Y-2026.03/dw/sim_ver
 DESIGN_FILES = ./design/alu.v ./design/instr_decode.v ./design/reg_file.v ./design/sfu.v ./design/cardinal_cpu.v ./design/cardinal_nic.v ./design/input_ctrl.v ./design/output_ctrl.v ./design/gold_router.v ./design/gold_mesh.v ./design/cardinal_cmp.v ./include/imem.v ./include/dmem.v $(DW_PATH)/DW_div.v $(DW_PATH)/DW_sqrt.v
 NETLIST_FILES = ./netlist/*.v

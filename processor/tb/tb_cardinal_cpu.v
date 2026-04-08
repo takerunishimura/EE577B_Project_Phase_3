@@ -23,6 +23,7 @@ parameter clock_period = 4;
 integer cycle_number;
 integer i;
 integer dmem_dump_file_1, dmem_dump_file_2, dmem_dump_file_3;
+integer cycles_imem1, cycles_imem2, cycles_imem3;
 
 // FIX: Added program_started flag to prevent false termination at time 0
 // when inst_in is 00000000 before any instructions have been fetched
@@ -68,6 +69,8 @@ initial
 		// FIX: wait for program to start before checking for termination
 		wait (program_started && inst_in == 32'h00000000);
 		$display("The program completed in %d cycles", cycle_number);
+		// after imem_1 completes
+		cycles_imem1 = cycle_number;
 		// Let us now flush the pipe line
 		repeat(5) @(negedge clk);
 		// Open file for output
@@ -89,6 +92,8 @@ initial
 		// FIX: wait for program to start before checking for termination
 		wait (program_started && inst_in == 32'h00000000);
 		$display("The program completed in %d cycles", cycle_number);
+		// after imem_2 completes  
+		cycles_imem2 = cycle_number;
 		// Let us now flush the pipe line
 		repeat(5) @(negedge clk);
 		// Open file for output
@@ -110,6 +115,8 @@ initial
 		// FIX: wait for program to start before checking for termination
 		wait (program_started && inst_in == 32'h00000000);
 		$display("The program completed in %d cycles", cycle_number);
+		// after imem_3 completes
+		cycles_imem3 = cycle_number;
 		// Let us now flush the pipe line
 		repeat(5) @(negedge clk);
 		// Open file for output
@@ -121,6 +128,14 @@ initial
 		end
 		$fclose (dmem_dump_file_3);
 		#(5*clock_period);
+		
+		$display("========================================");
+		$display("  CYCLE COUNT SUMMARY");
+		$display("========================================");
+		$display("  imem_1.fill : %0d cycles", cycles_imem1);
+		$display("  imem_2.fill : %0d cycles", cycles_imem2);
+		$display("  imem_3.fill : %0d cycles", cycles_imem3);
+		$display("========================================");
 		$stop;
 	end
 
