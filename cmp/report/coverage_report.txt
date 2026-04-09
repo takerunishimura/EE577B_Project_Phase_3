@@ -1,3 +1,4 @@
+Completion detected at cycle: 845
 CARDINAL CMP ALL-TO-ALL COVERAGE REPORT
 Packets delivered: 240 / 240
 Coverage: 100%

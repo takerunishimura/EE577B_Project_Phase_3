@@ -1,0 +1,52 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : cardinal_nic
+Version: Y-2026.03
+Date   : Wed Apr  8 17:00:35 2026
+****************************************
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: in_status_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: in_buf_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  in_status_reg/CLK (DFFPOSX1)             0.00       0.00 r
+  in_status_reg/Q (DFFPOSX1)               0.11       0.11 f
+  U856/Y (INVX1)                           0.02       0.13 r
+  U801/Y (AND2X1)                          0.04       0.17 r
+  U802/Y (INVX1)                           0.02       0.19 f
+  U489/Y (AND2X1)                          0.04       0.23 f
+  U851/Y (INVX1)                           0.28       0.52 r
+  U845/Y (INVX1)                           0.12       0.64 f
+  U844/Y (INVX1)                           0.28       0.92 r
+  U279/Y (OAI21X1)                         0.10       1.01 f
+  in_buf_reg[0]/D (DFFPOSX1)               0.00       1.01 f
+  data arrival time                                   1.01
+
+  clock clk (rise edge)                    4.00       4.00
+  clock network delay (ideal)              0.00       4.00
+  in_buf_reg[0]/CLK (DFFPOSX1)             0.00       4.00 r
+  library setup time                      -0.07       3.93
+  data required time                                  3.93
+  -----------------------------------------------------------
+  data required time                                  3.93
+  data arrival time                                  -1.01
+  -----------------------------------------------------------
+  slack (MET)                                         2.92
+
+
+1

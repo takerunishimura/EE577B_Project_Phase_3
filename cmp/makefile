@@ -45,10 +45,17 @@ TOP = tb_cardinal_cmp
 TOP_SYN = tb_syn_cardinal_cmp
 DESIGN_NAME = cardinal_cmp
 
+# top level module for torus
+TOP_TORUS = tb_cardinal_torus_cmp
+DESIGN_NAME_TORUS = cardinal_torus_cmp
+
 # List of the design files
 DW_PATH = /tools/synopsys/syn/Y-2026.03/dw/sim_ver
 DESIGN_FILES = ./design/alu.v ./design/instr_decode.v ./design/reg_file.v ./design/sfu.v ./design/cardinal_cpu.v ./design/cardinal_nic.v ./design/input_ctrl.v ./design/output_ctrl.v ./design/gold_router.v ./design/gold_mesh.v ./design/cardinal_cmp.v ./include/imem.v ./include/dmem.v $(DW_PATH)/DW_div.v $(DW_PATH)/DW_sqrt.v
 NETLIST_FILES = ./netlist/*.v
+
+# Torus design files (swap gold_mesh -> torus_mesh, cardinal_cmp -> cardinal_torus_cmp)
+DESIGN_FILES_TORUS = ./design/alu.v ./design/instr_decode.v ./design/reg_file.v ./design/sfu.v ./design/cardinal_cpu.v ./design/cardinal_nic.v ./design/input_ctrl.v ./design/output_ctrl.v ./design/gold_router.v ./design/torus_mesh.v ./design/cardinal_torus_cmp.v ./include/imem.v ./include/dmem.v $(DW_PATH)/DW_div.v $(DW_PATH)/DW_sqrt.v
 
 # List of the testbench files
 TB_FILES = ./tb/*.v
@@ -144,7 +151,7 @@ all : clean elab~ sim
 # analyze all the design and testbench files
 ana~ : $(DESIGN_FILES)
 	for f in $(DESIGN_FILES); do ncvlog $(NCVLOG_SWITCHES) -work work $$f ; done
-	for f in $(TB_FILES);     do ncvlog $(NCVLOG_SWITCHES) -work work $$f ; done
+	ncvlog $(NCVLOG_SWITCHES) -work work ./tb/tb_cardinal_cmp.v
 	@touch ana~
 
 ana_syn~ : $(NETLIST_FILES)
@@ -211,3 +218,18 @@ hdl.var :
 init : dir cds.lib hdl.var
 	@touch AUTHORS
 	@echo 'Initialized the directory for simulation'
+
+ana_torus~ : $(DESIGN_FILES_TORUS)
+	for f in $(DESIGN_FILES_TORUS); do ncvlog $(NCVLOG_SWITCHES) -work work $$f ; done
+	ncvlog $(NCVLOG_SWITCHES) -work work ./tb/tb_cardinal_torus_cmp.v
+	@touch ana_torus~
+
+elab_torus~ : ana_torus~
+	ncelab $(NCELAB_SWITCHES) work.$(TOP_TORUS)
+	@touch elab_torus~
+
+sim_torus : clean elab_torus~
+	ncsim $(NCSIM_SWITCHES_NO_GUI) work.$(TOP_TORUS)
+
+simg_torus : clean elab_torus~
+	ncsim $(NCSIM_SWITCHES_GUI) work.$(TOP_TORUS)

@@ -15,5 +15,26 @@ DVEfiles/
 */reports/*
 !*/reports/.gitkeep
 gen_imem2.py
-gen_imem3.pyprocessor/netlist/*.sdf
+gen_imem3.py
+processor/netlist/*.sdf
 processor/netlist/*.v
+
+# Simulation artifacts
+*ana~
+*elab~
+*.err
+ncsim*
+
+# NIC synthesis artifacts
+nic/*.mr
+nic/*.pvl
+nic/*.syn
+nic/cksum_dir/
+nic/default.svf
+nic/netlist/*.sdf
+nic/netlist/*.v
+nic/netlist/*.sdc
+
+# Report dumps
+cmp/report/*.dump
+cmp/report/coverage_report.txt
