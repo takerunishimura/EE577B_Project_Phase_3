@@ -9,10 +9,11 @@ set design_name $env(DESIGN_NAME);
 
 ## For NCSUFreePDK45nm library
 set search_path [ list . \
-                  /tools/PDK/NCSU45PDK/FreePDK45/osu_soc/lib/files/ ]
+                  /tools/PDK/NCSU45PDK/FreePDK45/osu_soc/lib/files/ \
+                  /tools/synopsys/syn/Y-2026.03/libraries/syn/ ]
 set target_library { gscl45nm.db }
-set synthetic_library [list dw_foundation.sldb standard.sldb ]
-set link_library [list * gscl45nm.db dw_foundation.sldb standard.sldb]
+set synthetic_library [list /tools/synopsys/syn/Y-2026.03/libraries/syn/dw_foundation.sldb standard.sldb ]
+set link_library [list * gscl45nm.db /tools/synopsys/syn/Y-2026.03/libraries/syn/dw_foundation.sldb standard.sldb]
 
 
 # Reading source verilog file.
@@ -26,15 +27,22 @@ if {[llength $rtl_files] == 0} {
 puts "Info: Found [llength $rtl_files] RTL files"
 
 analyze -format verilog $rtl_files
+analyze -format verilog ./include/imem.v
+analyze -format verilog ./include/dmem.v
+
 elaborate $design_name
+current_design $design_name
+set_dont_touch [find design -hierarchy imem*]
+set_dont_touch [find design -hierarchy dmem*]
+
 
 # Setting $design_name as current working design.
 # Use this command before setting any constraints.
-current_design $design_name ;
+#current_design $design_name ;
 
 # If you have multiple instances of the same module,
 # use this so that DesignCompiler optimizes each instance separately.
-uniquify ;
+#uniquify ;
 
 # Linking your design into the cells in standard cell libraries.
 # This command checks whether your design can be compiled

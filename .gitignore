@@ -38,3 +38,18 @@ nic/netlist/*.sdc
 # Report dumps
 cmp/report/*.dump
 cmp/report/coverage_report.txt
+
+# Cadence/DC artifacts in cmp/
+*.mr
+*.pvl
+*.syn
+cds.lib
+hdl.var
+cksum_dir/
+default.svf
+setup_ee577b_v26.csh
+
+# CMP netlist
+cmp/netlist/*.sdf
+cmp/netlist/*.v
+cmp/netlist/*.sdc

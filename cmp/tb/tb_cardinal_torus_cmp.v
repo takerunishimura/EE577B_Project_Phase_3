@@ -198,22 +198,22 @@ initial begin
     // ============================================================
     $display("\n--- Dumping data memories ---");
 
-    dump_file[0]  = $fopen("./report/cmp_test.dmem.00.dump");
-    dump_file[1]  = $fopen("./report/cmp_test.dmem.01.dump");
-    dump_file[2]  = $fopen("./report/cmp_test.dmem.02.dump");
-    dump_file[3]  = $fopen("./report/cmp_test.dmem.03.dump");
-    dump_file[4]  = $fopen("./report/cmp_test.dmem.10.dump");
-    dump_file[5]  = $fopen("./report/cmp_test.dmem.11.dump");
-    dump_file[6]  = $fopen("./report/cmp_test.dmem.12.dump");
-    dump_file[7]  = $fopen("./report/cmp_test.dmem.13.dump");
-    dump_file[8]  = $fopen("./report/cmp_test.dmem.20.dump");
-    dump_file[9]  = $fopen("./report/cmp_test.dmem.21.dump");
-    dump_file[10] = $fopen("./report/cmp_test.dmem.22.dump");
-    dump_file[11] = $fopen("./report/cmp_test.dmem.23.dump");
-    dump_file[12] = $fopen("./report/cmp_test.dmem.30.dump");
-    dump_file[13] = $fopen("./report/cmp_test.dmem.31.dump");
-    dump_file[14] = $fopen("./report/cmp_test.dmem.32.dump");
-    dump_file[15] = $fopen("./report/cmp_test.dmem.33.dump");
+    dump_file[0]  = $fopen("./report_torus/cmp_test.dmem.00.dump");
+    dump_file[1]  = $fopen("./report_torus/cmp_test.dmem.01.dump");
+    dump_file[2]  = $fopen("./report_torus/cmp_test.dmem.02.dump");
+    dump_file[3]  = $fopen("./report_torus/cmp_test.dmem.03.dump");
+    dump_file[4]  = $fopen("./report_torus/cmp_test.dmem.10.dump");
+    dump_file[5]  = $fopen("./report_torus/cmp_test.dmem.11.dump");
+    dump_file[6]  = $fopen("./report_torus/cmp_test.dmem.12.dump");
+    dump_file[7]  = $fopen("./report_torus/cmp_test.dmem.13.dump");
+    dump_file[8]  = $fopen("./report_torus/cmp_test.dmem.20.dump");
+    dump_file[9]  = $fopen("./report_torus/cmp_test.dmem.21.dump");
+    dump_file[10] = $fopen("./report_torus/cmp_test.dmem.22.dump");
+    dump_file[11] = $fopen("./report_torus/cmp_test.dmem.23.dump");
+    dump_file[12] = $fopen("./report_torus/cmp_test.dmem.30.dump");
+    dump_file[13] = $fopen("./report_torus/cmp_test.dmem.31.dump");
+    dump_file[14] = $fopen("./report_torus/cmp_test.dmem.32.dump");
+    dump_file[15] = $fopen("./report_torus/cmp_test.dmem.33.dump");
 
     for (i = 0; i < 32; i = i + 1)
         $fdisplay(dump_file[0],  "Memory location # %3d : %016h", i, tb_cardinal_torus_cmp.CMP.DMEM_00.MEM[i]);
@@ -251,7 +251,7 @@ initial begin
     for (i = 0; i < 16; i = i + 1)
         $fclose(dump_file[i]);
 
-    $display("Dmem dumps written to ./report/");
+    $display("Dmem dumps written to ./report_torus/");
 
     // ============================================================
     // Coverage checking
@@ -438,10 +438,10 @@ initial begin
     end
 
     // ============================================================
-    // Print coverage report
+    // Print coverage report_torus
     // ============================================================
     $display("\n============================================================");
-    $display("COVERAGE REPORT");
+    $display("COVERAGE REPORT_torus");
     $display("============================================================");
     $display("Packets delivered: %0d / %0d", total_delivered, total_expected);
     $display("Coverage: %0d%%", (total_delivered * 100) / total_expected);
@@ -484,11 +484,11 @@ initial begin
             $display("  None! All 240 packets delivered successfully.");
     end
 
-    // Write coverage report to file
-    cov_file = $fopen("./report/coverage_report.txt");
+    // Write coverage report_torus to file
+    cov_file = $fopen("./report_torus/coverage_report_torus.txt");
     $fdisplay(cov_file, "Completion detected at cycle: %0d", 
           (completion_time_ns / `CYCLE_TIME) - 4);
-    $fdisplay(cov_file, "CARDINAL CMP ALL-TO-ALL COVERAGE REPORT");
+    $fdisplay(cov_file, "CARDINAL CMP ALL-TO-ALL COVERAGE REPORT_torus");
     $fdisplay(cov_file, "Packets delivered: %0d / %0d", total_delivered, total_expected);
     $fdisplay(cov_file, "Coverage: %0d%%", (total_delivered * 100) / total_expected);
     $fdisplay(cov_file, "");
@@ -511,7 +511,7 @@ initial begin
     end
     $fclose(cov_file);
 
-    $display("\nCoverage report written to ./report/coverage_report.txt");
+    $display("\nCoverage report_torus written to ./report_torus/coverage_report_torus.txt");
     $display("============================================================");
 
     if (total_delivered == total_expected) begin

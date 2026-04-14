@@ -61,9 +61,6 @@ integer total_expected;
 
 integer start_cycle;
 integer completion_cycle;
-integer timeout;
-integer filled;
-integer k;
 
 // ============================================================
 // Node ID helpers
@@ -149,41 +146,9 @@ initial begin
     $display("Simulation started at time %0t", $time);
     $display("Running all-to-all communication test (240 packets)...");
 
-    begin : wait_loop
-        timeout = 0;
-        filled  = 0;
-        while (filled < 240 && timeout < 3000000) begin
-            @(posedge clk);
-            timeout = timeout + 1;
-            filled = 0;
-            for (k = 16; k <= 30; k = k + 1) begin
-                if (tb_cardinal_cmp.CMP.DMEM_00.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_01.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_02.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_03.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_10.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_11.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_12.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_13.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_20.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_21.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_22.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_23.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_30.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_31.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_32.MEM[k] !== 64'd0) filled = filled + 1;
-                if (tb_cardinal_cmp.CMP.DMEM_33.MEM[k] !== 64'd0) filled = filled + 1;
-            end
-        end
-        // Wait 500 extra cycles for all writes to settle
-        repeat(500) @(posedge clk);
-        timeout = timeout + 500;
-        if (timeout >= 3000000)
-            $display("Timeout reached. Only %0d/240 slots filled.", filled);
-        else
-            $display("All slots filled at cycle %0d (from reset)", timeout - 20);
-        completion_cycle = timeout - 20;
-    end
+    #(50000 * `CYCLE_TIME);
+    completion_cycle = ($time / `CYCLE_TIME) - start_cycle;
+    $display("Stopped at cycle %0d from reset. Flushing pipeline...", completion_cycle);
 
     repeat(10) @(negedge clk);
 

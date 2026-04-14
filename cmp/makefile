@@ -183,8 +183,10 @@ sim_syn : clean elab_syn~
 simg_syn : clean elab_syn~
 	ncsim $(NCSIM_SWITCHES_GUI_SYN) work.$(TOP_SYN)
 
+#syn:
+#	dc_shell -f scripts/syn.tcl -output_log_file dc.log
 syn:
-	dc_shell -f scripts/syn.tcl -output_log_file dc.log
+	DESIGN_NAME=$(DESIGN_NAME) dc_shell -f scripts/syn.tcl -output_log_file dc.log
 
 # clean the library to have a clean start
 clean :
