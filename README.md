@@ -113,15 +113,3 @@ EE577B_Project_Phase_3/
 - **Simulation:** Cadence NC-Sim, Cadence SimVision
 - **HDL:** Verilog (synthesizable style)
 
----
-
-## Work Division
-
-| Task | Owner |
-|---|---|
-| Cardinal NIC design | Tak |
-| D-frontier v1/v2, send/receive interleaving deadlock fix | Tak |
-| Torus topology extension | Tak |
-| CMP integration (`cardinal_cmp.v`) | Tak & Alexandra |
-| All-to-all testbench | Tak & Alexandra |
-| Assembly program (`.asm`, `.fill` files) | Alexandra |
